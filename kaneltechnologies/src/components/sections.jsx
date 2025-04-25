@@ -5,7 +5,7 @@ export const Home = () => (
     <section
       id="home"
       className="min-h-screen flex flex-col justify-center items-center bg-gray-100">
-      <h1 className="text-5xl font-bold">Home</h1>
+      <h1 className="text-5xl font-bold ">Home</h1>
     </section>
   </>
 );
