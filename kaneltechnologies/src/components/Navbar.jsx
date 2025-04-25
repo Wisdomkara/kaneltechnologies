@@ -18,10 +18,9 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-4 flex items-center justify-between h-16">
         {/* Header on the Left */}
         <div className="flex flex-col items-start">
-          <h1 className="text-3xl font-bold text-gray-800 ">
+          <h1 className="text-3xl font-bold text-gray-800 cursor-pointer hover:text-blue-700">
             Kanel Technologies
           </h1>
-         
         </div>
 
         {/* Navbar Links on the Right */}
@@ -33,7 +32,7 @@ export default function Navbar() {
                 to={to}
                 smooth={true}
                 duration={500}
-                className="ml-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
+                className="ml-4 px-4 py-2 bg-blue-600 text-white rounded-full cursor-pointer hover:bg-blue-700 transition">
                 {name}
               </Link>
             ) : (
@@ -41,8 +40,8 @@ export default function Navbar() {
                 key={to}
                 to={to}
                 smooth={true}
-                duration={500}
-                className="text-gray-700 hover:text-blue-600 px-3 py-2 transition">
+                duration={400}
+                className="text-gray-700 hover:text-blue-600 cursor-pointer hover:rounded-xl duration-300 px-3 py-2 transition">
                 {name}
               </Link>
             )
