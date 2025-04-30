@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import HeroImage from '../assets/images/Business-growth.jpeg';
-import US from "../assets/images/team.jpeg";   
+import US from '../assets/images/team.jpeg';
+import HeroCom from '../assets/images/company.jpg';
+import { FaFacebook, FaTwitter, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 
 // Helper component for animation when scrolling
 const AnimatedSection = ({ children, className, id }) => {
@@ -74,21 +77,14 @@ export const Home = () => (
       {/* Image Content */}
       <div className="w-full md:w-1/2 flex justify-center mt-8 md:mt-0">
         <img
-          src={HeroImage}
+          src={HeroCom}
           alt="Business growth illustration"
-          className="w-full md:w-3/4 max-w-lg object-cover rounded-2xl shadow-xl transition-all duration-500 ease-in-out hover:scale-105"
+          className="w-full md:w-3/4 max-w-lg object-cover rounded-2xl shadow-xl transition-all duration-500 ease-in-out hover:scale-105 h-65"
         />
       </div>
     </div>
   </AnimatedSection>
 );
-
-
-
-
-
-
-
 
 // about section
 export const About = () => {
@@ -116,10 +112,10 @@ export const About = () => {
     <AnimatedSection id="about" className="py-24 px-6 md:px-12 bg-white">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4 font-lato">
             About Kanel Technologies
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto font-lato">
             A team of dedicated IT professionals committed to delivering
             exceptional managed services tailored to your business requirements.
           </p>
@@ -145,7 +141,7 @@ export const About = () => {
             <h3 className="text-2xl font-bold text-gray-800 mb-4">
               Your Trusted IT Partner
             </h3>
-            <p className="text-gray-600 mb-6 font-lato">
+            <p className="text-gray-600 mb-6 font-lato text-base font-bold">
               Since our founding, Kanel Technologies has been at the forefront
               of IT innovation, helping businesses leverage technology to
               achieve their goals. Our experienced team brings expertise across
@@ -156,9 +152,9 @@ export const About = () => {
             <div className="flex justify-between items-center text-gray-800">
               <div className="text-center">
                 <p className="text-3xl font-lato font-bold text-blue-600">
-                  15+
+                  10+
                 </p>
-                <p className="text-sm font-lato">Years Experience</p>
+                <p className="text-sm font-lato font-bold">Years Experience</p>
               </div>
               <div className="text-center">
                 <p className="text-3xl font-bold text-blue-600">500+</p>
@@ -166,7 +162,7 @@ export const About = () => {
               </div>
               <div className="text-center">
                 <p className="text-3xl font-bold text-blue-600">24/7</p>
-                <p className="text-sm font-lato">Support</p>
+                <p className="text-sm font-lato font-bold">Support</p>
               </div>
             </div>
           </div>
@@ -178,10 +174,10 @@ export const About = () => {
                 <button
                   key={tab}
                   onClick={() => setActiveTab(tab)}
-                  className={`py-3 px-6 font-medium text-sm transition-all duration-200 ${
+                  className={`py-3 px-6 font-medium  font-lato text-sm transition-all duration-200 ${
                     activeTab === tab
-                      ? 'text-blue-600 border-b-2 border-blue-600'
-                      : 'text-gray-500 hover:text-blue-500'
+                      ? 'text-blue-600 border-b-2 border-blue-600 font-lato'
+                      : 'text-gray-500 hover:text-blue-500 font-lato'
                   }`}>
                   {tabContent[tab].title}
                 </button>
@@ -212,7 +208,7 @@ export const About = () => {
                         />
                       </svg>
                     </div>
-                    <p className="text-gray-600">
+                    <p className="text-gray-600 font-lato">
                       Key point about{' '}
                       {tabContent[activeTab].title.toLowerCase()} at Kanel
                       Technologies. We prioritize excellence in every aspect of
@@ -222,7 +218,7 @@ export const About = () => {
                 ))}
               </ul>
 
-              <button className="mt-8 px-6 py-3 bg-blue-600 text-white font-medium rounded-xl hover:bg-blue-700 transition-colors duration-300">
+              <button className="mt-8 px-6 py-3 bg-blue-600 text-white font-medium rounded-xl hover:bg-blue-700 transition-colors duration-300 font-serif">
                 Learn More
               </button>
             </div>
@@ -236,173 +232,465 @@ export const About = () => {
 export const Team = () => {
   const teamMembers = [
     {
-      name: 'John Doe',
-      position: 'CEO & Founder',
-      image: 'bg-blue-200', // Placeholder for team member image
+      name: 'Wisdom Kara',
+      position: 'IT Consultant',
+      image: '/wizzyaspect.jpg',
+      bio: 'Expert in IT infrastructure and cloud solutions with over 8 years of experience.',
+      social: {
+        facebook: 'https://www.facebook.com/profile.php?id=61557241627798',
+        twitter: 'https://twitter.com/wisdomkara',
+        email: 'mailto:kaneltechnology@gmail.com',
+        linkedin: 'https://linkedin.com/in/wisdomkara',
+      },
     },
     {
-      name: 'Jane Smith',
-      position: 'CTO',
-      image: 'bg-blue-200', // Placeholder for team member image
+      name: 'Nelson John',
+      position: 'Data Analyst',
+      image: '/nelson.jpg',
+      bio: 'Data visualization specialist focused on transforming complex datasets into actionable insights.',
+      social: {
+        facebook: 'https://facebook.com/nelsonjohn',
+        twitter: 'https://twitter.com/nelsonjohn',
+        email: 'mailto:nelson@example.com',
+        linkedin: 'https://linkedin.com/in/nelsonjohn',
+      },
     },
     {
-      name: 'Alex Johnson',
-      position: 'Head of Client Relations',
-      image: 'bg-blue-200', // Placeholder for team member image
+      name: 'Precious Emeruwa',
+      position: 'Networking Manager',
+      image: '/precious.jpeg',
+      bio: 'Network security professional with expertise in designing robust network architectures.',
+      social: {
+        facebook: 'https://facebook.com/preciousemeruwa',
+        twitter: 'https://twitter.com/preciousemeruwa',
+        email: 'mailto:precious@example.com',
+        linkedin: 'https://linkedin.com/in/preciousemeruwa',
+      },
     },
     {
-      name: 'Sarah Williams',
-      position: 'Lead System Architect',
-      image: 'bg-blue-200', // Placeholder for team member image
+      name: 'James Okorie',
+      position: 'System Engineer',
+      image: '20.jpg',
+      bio: 'System optimization specialist with a passion for automating complex IT operations.',
+      social: {
+        facebook: 'https://facebook.com/jamesokorie',
+        twitter: 'https://twitter.com/jamesokorie',
+        email: 'mailto:james@example.com',
+        linkedin: 'https://linkedin.com/in/jamesokorie',
+      },
     },
   ];
 
   return (
-    <AnimatedSection id="team" className="py-24 px-6 md:px-12 bg-gray-50">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Meet Our Expert Team
-          </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Our talented professionals bring years of industry experience and a
-            passion for technology to deliver exceptional IT solutions.
-          </p>
-        </div>
+    <section
+      id="team"
+      className="py-32 px-8 md:px-16 bg-gradient-to-b from-gray-50 to-gray-100">
+      <div className="max-w-7xl mx-auto text-center mb-24">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          className="relative inline-block mb-6">
+          <span className="absolute -inset-1 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 opacity-30 blur-lg"></span>
+          <span className="relative text-sm uppercase tracking-widest font-bold text-blue-600 px-4 py-2 bg-white rounded-full shadow-sm">
+            Our Professionals
+          </span>
+        </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {teamMembers.map((member, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
-              <div
-                className={`h-48 ${member.image} flex items-center justify-center`}>
-                <span className="text-blue-600 font-semibold">Team Photo</span>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-800">
-                  {member.name}
-                </h3>
-                <p className="text-blue-600 mb-4">{member.position}</p>
-                <p className="text-gray-600 text-sm">
-                  Experienced professional with expertise in delivering
-                  cutting-edge IT solutions.
-                </p>
-                <div className="mt-4 flex space-x-3">
-                  {/* Social media icons */}
-                  {['LinkedIn', 'Twitter', 'Email'].map((social, i) => (
-                    <a
-                      key={i}
-                      href="#"
-                      className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 hover:bg-blue-100 transition">
-                      <span className="text-xs">{social.charAt(0)}</span>
-                    </a>
-                  ))}
-                </div>
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-4xl md:text-6xl font-extrabold text-gray-900 mb-6 font-lato">
+          Meet Our{' '}
+          <span className="text-gradient bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
+            Expert Team
+          </span>
+        </motion.h2>
+
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          Our talented professionals bring years of industry experience and a
+          passion for technology-driven solutions that transform businesses.
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, width: 0 }}
+          whileInView={{ opacity: 1, width: '80px' }}
+          transition={{ delay: 0.5, duration: 0.8 }}
+          className="h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mt-8 rounded-full"></motion.div>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 max-w-7xl mx-auto">
+        {teamMembers.map((member, i) => (
+          <motion.div
+            key={i}
+            className="group perspective-[1000px] bg-white rounded-2xl shadow-xl overflow-hidden cursor-pointer border border-gray-100"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            whileHover={{
+              scale: 1.03,
+              rotateY: 5,
+              boxShadow: '0 25px 50px rgba(0,0,0,0.2)',
+            }}
+            transition={{
+              type: 'spring',
+              stiffness: 300,
+              damping: 20,
+              delay: i * 0.15,
+            }}>
+            {/* Image with overlay */}
+            <div className="relative h-64 w-full overflow-hidden">
+              <img
+                src={member.image}
+                alt={member.name}
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+              <div className="absolute bottom-4 left-4 opacity-0 transition-all duration-500 group-hover:opacity-100 transform group-hover:translate-y-0 translate-y-4">
+                <span className="bg-white/20 backdrop-blur-md px-4 py-2 rounded-full text-white text-sm font-medium shadow-lg">
+                  {member.position}
+                </span>
               </div>
             </div>
-          ))}
-        </div>
 
-        <div className="mt-16 text-center">
-          <p className="text-gray-600 mb-4">
-            Interested in joining our team of IT professionals?
-          </p>
-          <button className="px-6 py-3 bg-blue-600 text-white font-medium rounded-xl hover:bg-blue-700 transition-colors duration-300">
-            View Open Positions
-          </button>
-        </div>
+            {/* Content */}
+            <div className="p-8">
+              <h3 className="text-2xl font-bold text-gray-800 mb-2">
+                {member.name}
+              </h3>
+              <p className="text-gray-600 text-sm mb-6 line-clamp-3">
+                {member.bio}
+              </p>
+
+              <div className="flex space-x-4 opacity-0 translate-y-2 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0">
+                <a
+                  href={member.social.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${member.name}'s Facebook`}
+                  className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center shadow-md hover:bg-blue-50 transition-colors duration-300"
+                  style={{ color: '#1877F2' }}>
+                  <FaFacebook className="text-lg" />
+                </a>
+                <a
+                  href={member.social.twitter}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${member.name}'s Twitter`}
+                  className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center shadow-md hover:bg-blue-50 transition-colors duration-300"
+                  style={{ color: '#1DA1F2' }}>
+                  <FaTwitter className="text-lg" />
+                </a>
+                <a
+                  href={member.social.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${member.name}'s LinkedIn`}
+                  className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center shadow-md hover:bg-blue-50 transition-colors duration-300"
+                  style={{ color: '#0A66C2' }}>
+                  <FaLinkedin className="text-lg" />
+                </a>
+                <a
+                  href={member.social.email}
+                  aria-label={`Email ${member.name}`}
+                  className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center shadow-md hover:bg-red-50 transition-colors duration-300"
+                  style={{ color: '#EA4335' }}>
+                  <FaEnvelope className="text-lg" />
+                </a>
+              </div>
+
+              <div className="h-1 w-12 bg-gradient-to-r from-blue-400 to-purple-400 mt-6 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            </div>
+          </motion.div>
+        ))}
       </div>
-    </AnimatedSection>
+
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.8, duration: 0.6 }}
+        className="text-center mt-20 max-w-3xl mx-auto">
+        <a
+          href="#contact"
+          className="inline-block px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+          Connect With Our Team
+        </a>
+        <p className="text-gray-500 mt-4">
+          Ready to transform your business with our expertise?
+        </p>
+      </motion.div>
+    </section>
   );
 };
 
+import { FaGlobe, FaLock, FaNetworkWired, FaLaptopCode } from 'react-icons/fa';
+
 export const Projects = () => {
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+
   const projects = [
     {
-      title: 'Enterprise Cloud Migration',
-      category: 'Cloud Services',
+      title: 'Web Application Development',
+      category: 'Web Services',
       description:
-        'Complete migration of legacy systems to cloud infrastructure for a Fortune 500 company.',
+        'Completed the building of a web application for the organisation.',
+      color: 'blue',
+      icon: FaGlobe,
     },
     {
       title: 'Cybersecurity Enhancement',
       category: 'Security',
       description:
         'Implementation of comprehensive security protocols for a financial institution.',
+      color: 'red',
+      icon: FaLock,
     },
     {
       title: 'Network Infrastructure Upgrade',
       category: 'Networking',
       description:
         'Complete overhaul of networking systems for improved performance and reliability.',
+      color: 'green',
+      icon: FaNetworkWired,
     },
     {
       title: 'Custom Software Development',
       category: 'Development',
       description:
         'Custom application designed to streamline business operations and increase efficiency.',
+      color: 'purple',
+      icon: FaLaptopCode,
     },
   ];
 
+  // Map color names to actual tailwind classes
+  const colorMap = {
+    blue: {
+      bg: 'bg-blue-200',
+      text: 'text-blue-600',
+      badge: 'bg-blue-100',
+      hover: 'hover:text-blue-800',
+      gradient: 'from-white to-blue-50',
+    },
+    red: {
+      bg: 'bg-red-200',
+      text: 'text-red-600',
+      badge: 'bg-red-100',
+      hover: 'hover:text-red-800',
+      gradient: 'from-white to-red-50',
+    },
+    green: {
+      bg: 'bg-green-200',
+      text: 'text-green-600',
+      badge: 'bg-green-100',
+      hover: 'hover:text-green-800',
+      gradient: 'from-white to-green-50',
+    },
+    purple: {
+      bg: 'bg-purple-200',
+      text: 'text-purple-600',
+      badge: 'bg-purple-100',
+      hover: 'hover:text-purple-800',
+      gradient: 'from-white to-purple-50',
+    },
+  };
+
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: 'spring',
+        stiffness: 100,
+        damping: 12,
+      },
+    },
+  };
+
+  const headerVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+      },
+    },
+  };
+
+  const buttonVariants = {
+    rest: { scale: 1 },
+    hover: { scale: 1.05, transition: { duration: 0.2 } },
+    tap: { scale: 0.95 },
+  };
+
   return (
-    <AnimatedSection id="projects" className="py-24 px-6 md:px-12 bg-white">
+    <section
+      id="projects"
+      className="py-24 px-6 md:px-12 bg-white overflow-hidden">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Our Recent Projects
-          </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx- font-lato">
+        <motion.div
+          className="text-center mb-16"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={containerVariants}>
+          <motion.span
+            variants={headerVariants}
+            className="inline-block px-4 py-2 bg-blue-50 text-blue-600 text-sm font-medium rounded-full mb-4">
+            Our Portfolio
+          </motion.span>
+
+          <motion.h2
+            variants={headerVariants}
+            className="text-4xl md:text-6xl font-extrabold text-gray-900 mb-4 font-lato">
+            Our Recent{' '}
+            <span className="text-gradient bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
+              Projects
+            </span>
+          </motion.h2>
+
+          <motion.p
+            variants={headerVariants}
+            className="text-lg text-gray-600 max-w-3xl mx-auto font-lato">
             Explore some of our recent work delivering innovative IT solutions
             for businesses across industries.
-          </p>
-        </div>
+          </motion.p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
-            <div
-              key={index}
-              className="bg-gradient-to-br from-white to-blue-50 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
-              <div className="h-48 bg-blue-200 flex items-center justify-center">
-                <span className="text-blue-600 font-semibold">
-                  Project Image
-                </span>
-              </div>
-              <div className="p-6">
-                <span className="inline-block px-3 py-1 bg-blue-100 text-blue-600 text-sm font-medium rounded-full mb-4">
-                  {project.category}
-                </span>
-                <h3 className="text-xl font-bold text-gray-800 mb-2">
-                  {project.title}
-                </h3>
-                <p className="text-gray-600 mb-4">{project.description}</p>
-                <button className="text-blue-600 font-medium flex items-center space-x-1 hover:text-blue-800 transition-colors">
-                  <span>View Case Study</span>
-                  <svg
-                    className="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24">
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M14 5l7 7m0 0l-7 7m7-7H3"
-                    />
-                  </svg>
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
+          <motion.div
+            variants={headerVariants}
+            className="h-1 w-24 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mt-8 rounded-full"
+          />
+        </motion.div>
 
-        <div className="mt-16 text-center">
-          <button className="px-6 py-3 border-2 border-blue-600 text-blue-600 font-medium rounded-xl hover:bg-blue-50 transition-colors duration-300">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={containerVariants}>
+          {projects.map((project, index) => {
+            const colors = colorMap[project.color];
+
+            return (
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                className={`bg-gradient-to-br ${colors.gradient} rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500`}
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+                whileHover={{ y: -5, transition: { duration: 0.3 } }}>
+                <div
+                  className={`relative h-48 ${colors.bg} flex items-center justify-center overflow-hidden`}>
+                  <motion.div
+                    initial={{ y: 30, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{
+                      delay: 0.3 + index * 0.1,
+                      duration: 0.5,
+                      type: 'spring',
+                    }}
+                    className={`${colors.text} ${
+                      hoveredIndex === index ? 'scale-125' : 'scale-100'
+                    } transition-transform duration-500`}>
+                    <project.icon size={64} />
+                  </motion.div>
+
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: hoveredIndex === index ? 1 : 0 }}
+                    transition={{ duration: 0.3 }}
+                  />
+
+                  <motion.div
+                    className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-purple-500"
+                    initial={{ scaleX: 0, originX: 0 }}
+                    animate={{ scaleX: hoveredIndex === index ? 1 : 0 }}
+                    transition={{ duration: 0.5 }}
+                  />
+                </div>
+
+                <div className="p-6">
+                  <motion.span
+                    className={`inline-block px-3 py-1 ${colors.badge} ${colors.text} text-sm font-medium rounded-full mb-4`}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.2 + index * 0.1 }}>
+                    {project.category}
+                  </motion.span>
+
+                  <h3
+                    className={`text-xl font-bold text-gray-800 mb-2 ${
+                      hoveredIndex === index ? colors.text : ''
+                    } transition-colors duration-300`}>
+                    {project.title}
+                  </h3>
+
+                  <p className="text-gray-600 mb-4">{project.description}</p>
+
+                  <motion.button
+                    className={`${colors.text} font-medium flex items-center space-x-1 ${colors.hover} transition-colors`}
+                    variants={buttonVariants}
+                    initial="rest"
+                    whileHover="hover"
+                    whileTap="tap">
+                    <span>View Case Study</span>
+                    <motion.svg
+                      className="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      animate={{ x: hoveredIndex === index ? 5 : 0 }}
+                      transition={{ duration: 0.3 }}>
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M14 5l7 7m0 0l-7 7m7-7H3"
+                      />
+                    </motion.svg>
+                  </motion.button>
+                </div>
+              </motion.div>
+            );
+          })}
+        </motion.div>
+
+        <motion.div
+          className="mt-16 text-center"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.8, type: 'spring', stiffness: 50 }}>
+          <motion.button
+            className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-xl hover:shadow-lg transition-all duration-300"
+            whileHover={{
+              scale: 1.05,
+              boxShadow: '0 10px 25px -5px rgba(59, 130, 246, 0.5)',
+            }}
+            whileTap={{ scale: 0.98 }}>
             View All Projects
-          </button>
-        </div>
+          </motion.button>
+        </motion.div>
       </div>
-    </AnimatedSection>
+    </section>
   );
 };
 
@@ -574,32 +862,256 @@ export const Blog = () => {
   );
 };
 
+import { FaInstagram, FaPhone, FaClock, FaMapMarkerAlt } from 'react-icons/fa';
+
 export const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+  });
+
+  const [formStatus, setFormStatus] = useState({
+    isSubmitting: false,
+    isSubmitted: false,
+    error: null,
+  });
+
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setFormData((prev) => ({ ...prev, [id]: value }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setFormStatus({ isSubmitting: true, isSubmitted: false, error: null });
+
+    // Simulate form submission
+    setTimeout(() => {
+      setFormStatus({
+        isSubmitting: false,
+        isSubmitted: true,
+        error: null,
+      });
+
+      // Reset form after 3 seconds
+      setTimeout(() => {
+        setFormStatus((prev) => ({ ...prev, isSubmitted: false }));
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      }, 3000);
+    }, 1500);
+  };
+
+  // Social media data with actual links
+  const socialLinks = [
+    {
+      name: 'Facebook',
+      icon: FaFacebook,
+      color: '#1877F2',
+      url: 'https://www.facebook.com/profile.php?id=61557241627798',
+    },
+    {
+      name: 'Twitter',
+      icon: FaTwitter,
+      color: '#1DA1F2',
+      url: 'https://twitter.com/wisdomkara',
+    },
+    {
+      name: 'LinkedIn',
+      icon: FaLinkedin,
+      color: '#0A66C2',
+      url: 'https://linkedin.com/company/kaneltechnology',
+    },
+    {
+      name: 'Instagram',
+      icon: FaInstagram,
+      color: '#E4405F',
+      url: 'https://instagram.com/kaneltechnology',
+    },
+  ];
+
+  // Contact info cards
+  const contactInfo = [
+    {
+      title: 'Phone',
+      icon: FaPhone,
+      content: ['+2347084153584', '08152282324'],
+      color: 'blue',
+    },
+    {
+      title: 'Email',
+      icon: FaEnvelope,
+      content: ['kaneltechnology@gmail.com'],
+      color: 'green',
+    },
+    {
+      title: 'Availability',
+      icon: FaClock,
+      content: ['24/7 Support'],
+      color: 'purple',
+    },
+    {
+      title: 'Office',
+      icon: FaMapMarkerAlt,
+      content: ['Lagos, Nigeria'],
+      color: 'red',
+    },
+  ];
+
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { type: 'spring', stiffness: 100, damping: 10 },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { y: 30, opacity: 0 },
+    visible: (i) => ({
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: 'spring',
+        stiffness: 100,
+        damping: 10,
+        delay: i * 0.1 + 0.3,
+      },
+    }),
+  };
+
+  const socialVariants = {
+    hidden: { scale: 0, opacity: 0 },
+    visible: (i) => ({
+      scale: 1,
+      opacity: 1,
+      transition: { delay: i * 0.1 + 0.8, type: 'spring', stiffness: 200 },
+    }),
+    hover: {
+      scale: 1.15,
+      boxShadow: '0px 5px 10px rgba(0,0,0,0.2)',
+      transition: { type: 'spring', stiffness: 300, damping: 10 },
+    },
+    tap: { scale: 0.95 },
+  };
+
+  // Color variants
+  const colorMap = {
+    blue: {
+      bg: 'bg-blue-100',
+      text: 'text-blue-600',
+      gradient: 'from-blue-500 to-blue-600',
+    },
+    green: {
+      bg: 'bg-green-100',
+      text: 'text-green-600',
+      gradient: 'from-green-500 to-green-600',
+    },
+    purple: {
+      bg: 'bg-purple-100',
+      text: 'text-purple-600',
+      gradient: 'from-purple-500 to-purple-600',
+    },
+    red: {
+      bg: 'bg-red-100',
+      text: 'text-red-600',
+      gradient: 'from-red-500 to-red-600',
+    },
+  };
+
   return (
-    <AnimatedSection
+    <section
       id="contact"
-      className="py-24 px-6 md:px-12 bg-gradient-to-b from-gray-100 to-gray-50">
+      className="py-24 px-6 md:px-12 bg-gradient-to-b from-gray-100 to-gray-50 overflow-hidden">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Get In Touch
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}>
+          {/* Badge */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="inline-block px-4 py-2 bg-blue-50 text-blue-600 text-sm font-medium rounded-full mb-4">
+            Contact Us
+          </motion.div>
+
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            Get In{' '}
+            <span className="text-gradient bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
+              Touch
+            </span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+
+          <motion.p
+            className="text-lg text-gray-600 max-w-3xl mx-auto"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 }}>
             Have questions about our IT services or want to discuss your
             project? Reach out to us today and one of our experts will get back
             to you promptly.
-          </p>
-        </div>
+          </motion.p>
+
+          <motion.div
+            initial={{ width: 0, opacity: 0 }}
+            whileInView={{ width: '80px', opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+            className="h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mt-6 rounded-full"
+          />
+        </motion.div>
 
         <div className="flex flex-col lg:flex-row gap-12">
           {/* Contact Form */}
-          <div className="w-full lg:w-2/3 bg-white p-8 rounded-xl shadow-md">
-            <h3 className="text-2xl font-bold text-gray-800 mb-6">
-              Send Us a Message
+          <motion.div
+            className="w-full lg:w-2/3 bg-white p-8 rounded-xl shadow-lg"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ type: 'spring', stiffness: 50, damping: 15 }}
+            whileHover={{
+              boxShadow: '0 10px 25px -5px rgba(59, 130, 246, 0.5)',
+            }}>
+            <h3 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+              <span className="text-gradient bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 mr-2">
+                Send Us a Message
+              </span>
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 2, ease: 'linear', repeat: Infinity }}
+                className="w-5 h-5 rounded-full border-2 border-transparent border-t-blue-600 border-l-blue-600"
+              />
             </h3>
-            <form className="space-y-6">
+
+            <motion.form
+              className="space-y-6"
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
+                <motion.div variants={itemVariants}>
                   <label
                     htmlFor="name"
                     className="block text-sm font-medium text-gray-700 mb-1">
@@ -608,11 +1120,14 @@ export const Contact = () => {
                   <input
                     type="text"
                     id="name"
+                    value={formData.name}
+                    onChange={handleChange}
                     className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition"
                     placeholder="Your Name"
+                    required
                   />
-                </div>
-                <div>
+                </motion.div>
+                <motion.div variants={itemVariants}>
                   <label
                     htmlFor="email"
                     className="block text-sm font-medium text-gray-700 mb-1">
@@ -621,13 +1136,16 @@ export const Contact = () => {
                   <input
                     type="email"
                     id="email"
+                    value={formData.email}
+                    onChange={handleChange}
                     className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition"
                     placeholder="Your Email"
+                    required
                   />
-                </div>
+                </motion.div>
               </div>
 
-              <div>
+              <motion.div variants={itemVariants}>
                 <label
                   htmlFor="subject"
                   className="block text-sm font-medium text-gray-700 mb-1">
@@ -636,12 +1154,15 @@ export const Contact = () => {
                 <input
                   type="text"
                   id="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition"
                   placeholder="Message Subject"
+                  required
                 />
-              </div>
+              </motion.div>
 
-              <div>
+              <motion.div variants={itemVariants}>
                 <label
                   htmlFor="message"
                   className="block text-sm font-medium text-gray-700 mb-1">
@@ -650,105 +1171,154 @@ export const Contact = () => {
                 <textarea
                   id="message"
                   rows="5"
+                  value={formData.message}
+                  onChange={handleChange}
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition"
-                  placeholder="Your Message"></textarea>
-              </div>
+                  placeholder="Your Message"
+                  required></textarea>
+              </motion.div>
 
-              <button
-                type="submit"
-                className="w-full px-6 py-3 bg-blue-600 text-white font-medium rounded-xl hover:bg-blue-700 transition-all duration-300 transform hover:scale-[1.02]">
-                Send Message
-              </button>
-            </form>
-          </div>
+              <motion.div variants={itemVariants}>
+                <motion.button
+                  type="submit"
+                  disabled={formStatus.isSubmitting || formStatus.isSubmitted}
+                  className={`relative w-full px-6 py-4 text-white font-medium rounded-xl transition-all duration-300 overflow-hidden ${
+                    formStatus.isSubmitted
+                      ? 'bg-green-600'
+                      : 'bg-gradient-to-r from-blue-600 to-purple-600 hover:shadow-lg'
+                  }`}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}>
+                  {formStatus.isSubmitting ? (
+                    <span className="flex items-center justify-center">
+                      <motion.span
+                        className="inline-block w-5 h-5 border-2 border-white border-t-transparent rounded-full mr-2"
+                        animate={{ rotate: 360 }}
+                        transition={{
+                          duration: 1,
+                          repeat: Infinity,
+                          ease: 'linear',
+                        }}
+                      />
+                      Sending...
+                    </span>
+                  ) : formStatus.isSubmitted ? (
+                    <span className="flex items-center justify-center">
+                      <svg
+                        className="w-5 h-5 mr-2"
+                        fill="currentColor"
+                        viewBox="0 0 20 20">
+                        <path
+                          fillRule="evenodd"
+                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      Message Sent!
+                    </span>
+                  ) : (
+                    <span className="relative z-10">Send Message</span>
+                  )}
+
+                  <motion.div
+                    className="absolute bottom-0 left-0 right-0 h-1 bg-white/30"
+                    initial={{ scaleX: 0, originX: 0 }}
+                    whileHover={{ scaleX: 1 }}
+                    transition={{ duration: 0.4 }}
+                  />
+                </motion.button>
+              </motion.div>
+            </motion.form>
+          </motion.div>
 
           {/* Contact Information */}
-          <div className="w-full lg:w-1/3 space-y-8">
-            <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300">
-              <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-4">
-                <svg
-                  className="w-6 h-6 text-blue-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                  />
-                </svg>
-              </div>
-              <h4 className="text-lg font-bold text-gray-800 mb-1">Phone</h4>
-              <p className="text-gray-600">+1 (555) 123-4567</p>
-            </div>
+          <motion.div
+            className="w-full lg:w-1/3 space-y-6"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              type: 'spring',
+              stiffness: 50,
+              damping: 15,
+              delay: 0.2,
+            }}>
+            {contactInfo.map((info, index) => {
+              const colors = colorMap[info.color];
 
-            <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300">
-              <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-4">
-                <svg
-                  className="w-6 h-6 text-blue-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+              return (
+                <motion.div
+                  key={index}
+                  custom={index}
+                  variants={cardVariants}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  whileHover={{
+                    y: -5,
+                    boxShadow: '0 15px 30px rgba(0,0,0,0.1)',
+                  }}
+                  className="bg-white p-6 rounded-xl shadow-md transition-all duration-300 transform">
+                  <div
+                    className={`w-14 h-14 rounded-full ${colors.bg} flex items-center justify-center mb-4`}>
+                    <info.icon className={`w-6 h-6 ${colors.text}`} />
+                  </div>
+                  <h4 className="text-lg font-bold text-gray-800 mb-2">
+                    {info.title}
+                  </h4>
+                  {info.content.map((line, i) => (
+                    <p key={i} className="text-gray-600">
+                      {line}
+                    </p>
+                  ))}
+                  <motion.div
+                    className={`h-1 w-12 rounded-full mt-4 bg-gradient-to-r ${colors.gradient}`}
+                    initial={{ width: 0 }}
+                    whileInView={{ width: '3rem' }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.5 + index * 0.1 }}
                   />
-                </svg>
-              </div>
-              <h4 className="text-lg font-bold text-gray-800 mb-1">Email</h4>
-              <p className="text-gray-600">info@kaneltechnologies.com</p>
-            </div>
+                </motion.div>
+              );
+            })}
 
-            <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300">
-              <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-4">
-                <svg
-                  className="w-6 h-6 text-blue-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                  />
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                  />
-                </svg>
+            {/* Social Media Links */}
+            <div className="bg-white p-6 rounded-xl shadow-md">
+              <h4 className="text-lg font-bold text-gray-800 mb-4">
+                Connect With Us
+              </h4>
+              <div className="flex flex-wrap gap-4">
+                {socialLinks.map((social, index) => (
+                  <motion.a
+                    key={index}
+                    custom={index}
+                    variants={socialVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    whileHover="hover"
+                    whileTap="tap"
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center w-12 h-12 rounded-full bg-white shadow transition-all duration-300"
+                    style={{ backgroundColor: `${social.color}15` }}
+                    aria-label={`Connect on ${social.name}`}>
+                    <social.icon
+                      className="w-5 h-5"
+                      style={{ color: social.color }}
+                    />
+                    <span className="sr-only">{social.name}</span>
+                  </motion.a>
+                ))}
               </div>
-              <h4 className="text-lg font-bold text-gray-800 mb-1">Location</h4>
-              <p className="text-gray-600">
-                123 Business Avenue, Suite 100
-                <br />
-                New York, NY 10001
+              <p className="text-gray-500 text-sm mt-4">
+                Follow us on social media for updates and tech tips
               </p>
             </div>
-
-            <div className="flex justify-between items-center p-2">
-              {/* Social Media Links */}
-              {['Facebook', 'Twitter', 'LinkedIn', 'Instagram'].map(
-                (social, index) => (
-                  <a
-                    key={index}
-                    href="#"
-                    className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300">
-                    <span className="text-sm font-bold">
-                      {social.charAt(0)}
-                    </span>
-                  </a>
-                )
-              )}
-            </div>
-          </div>
+          </motion.div>
         </div>
       </div>
-    </AnimatedSection>
+    </section>
   );
 };
