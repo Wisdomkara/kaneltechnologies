@@ -700,19 +700,19 @@ export const Testimonials = () => {
       name: 'AG Grace Chapel',
       company: 'AG Grace Chapel',
       quote:
-        "Kanel Technologies transformed our IT infrastructure and significantly improved our operational efficiency. Their team's expertise and commitment to excellence exceeded our expectations.",
+        "Kanel Technologies Gave our organization the exposure it deserve with their web solution and SEO optimization.",
     },
     {
       name: 'Emily Wilson',
-      company: 'ABC Enterprises',
+      company: 'Solo Enterprise',
       quote:
         'Working with Kanel has been a game-changer for our business. Their proactive approach to IT management has prevented numerous issues and their support team is always responsive.',
     },
     {
       name: 'David Lee',
-      company: '123 Industries',
+      company: 'The Right Way Transport',
       quote:
-        'The cloud migration project handled by Kanel Technologies was completed ahead of schedule and under budget. Their technical knowledge and project management skills are outstanding.',
+        'Kanel Tech gave us an edge in the road transport by introducing us to the world of buusiness with web solution.',
     },
   ];
 
