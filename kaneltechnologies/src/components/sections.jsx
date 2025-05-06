@@ -234,7 +234,7 @@ export const Team = () => {
     {
       name: 'Wisdom Kara',
       position: 'IT Consultant',
-      image: '/wizzyaspect.jpg',
+      image: '/kaneltechnologies/wizzyaspect.jpg',
       bio: 'Expert in IT infrastructure and cloud solutions with over 8 years of experience.',
       social: {
         facebook: 'https://www.facebook.com/profile.php?id=61557241627798',
@@ -246,7 +246,7 @@ export const Team = () => {
     {
       name: 'Nelson John',
       position: 'Data Analyst',
-      image: '/nelson.jpg',
+      image: '/kaneltechnologies/nelson.jpg',
       bio: 'Data visualization specialist focused on transforming complex datasets into actionable insights.',
       social: {
         facebook: 'https://facebook.com/nelsonjohn',
@@ -258,7 +258,7 @@ export const Team = () => {
     {
       name: 'Precious Emeruwa',
       position: 'Networking Manager',
-      image: '/precious.jpeg',
+      image: '/kaneltechnologies/precious.jpeg',
       bio: 'Network security professional with expertise in designing robust network architectures.',
       social: {
         facebook: 'https://facebook.com/preciousemeruwa',
