@@ -697,8 +697,8 @@ export const Projects = () => {
 export const Testimonials = () => {
   const testimonials = [
     {
-      name: 'Michael Brown',
-      company: 'XYZ Corporation',
+      name: 'AG Grace Chapel',
+      company: 'AG Grace Chapel',
       quote:
         "Kanel Technologies transformed our IT infrastructure and significantly improved our operational efficiency. Their team's expertise and commitment to excellence exceeded our expectations.",
     },
