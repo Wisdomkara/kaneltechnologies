@@ -132,17 +132,17 @@ function App() {
                   <li className="flex items-start">
                     <span className="text-blue-400 mr-2">📍</span>
                     <span className="text-gray-300">
-                      123 Business Avenue, Suite 100, New York, NY 10001
+                      Lagos, Nigeria
                     </span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-blue-400 mr-2">📞</span>
-                    <span className="text-gray-300">+1 (555) 123-4567</span>
+                    <span className="text-gray-300">+2347084153584</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-blue-400 mr-2">✉️</span>
                     <span className="text-gray-300">
-                      info@kaneltechnologies.com
+                      KanelTechnology@gmail.com
                     </span>
                   </li>
                 </ul>

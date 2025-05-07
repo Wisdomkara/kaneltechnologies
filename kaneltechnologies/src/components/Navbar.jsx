@@ -77,7 +77,7 @@ export default function Navbar() {
             to="home"
             smooth={true}
             duration={500}
-            className="text-3xl font-bold text-gray-800 cursor-pointer hover:text-blue-700 transition-colors duration-300">
+            className="text-3xl font-bold text-gray-800 cursor-pointer hover:text-blue-700 transition-colors duration-300 ">
             Kanel Technologies
           </Link>
         </div>
