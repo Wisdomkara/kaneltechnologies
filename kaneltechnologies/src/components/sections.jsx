@@ -792,11 +792,12 @@ export const Blog = () => {
         'Learn about the latest threats and how to protect your business from potential cybersecurity risks.',
     },
     {
-      title: 'Leveraging AI for IT Operations: A Practical Guide',
+      title:
+        'Microsoft wins appeal in FTC challenge to $69 bln Activision Blizzard deal',
       category: 'Innovation',
       date: 'March 27, 2025',
-      excerpt:
-        'Explore practical applications of artificial intelligence to improve your IT infrastructure and operations.',
+      excerpt: `Explore practical applications of artificial intelligence to improve your IT infrastructure and operatioMay 7 (Reuters) - A federal appeals court on Wednesday rejected a legal challenge by the Federal Trade Commission to Microsoft.The San Francisco-based 9th U.S. Circuit Court of Appeals upheld a lower judge's order that said the FTC was not entitled to a preliminary injunction blocking the deal, which closed in 2023.`,
+      image:"/kanelblack.png"
     },
   ];
 
@@ -955,7 +956,7 @@ export const Contact = () => {
       title: 'Office',
       icon: FaMapMarkerAlt,
       content: ['Lagos, Nigeria'],
-      color: 'red',
+      color: 'blue',
     },
   ];
 

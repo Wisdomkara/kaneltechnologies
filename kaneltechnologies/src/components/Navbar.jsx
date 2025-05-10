@@ -78,7 +78,11 @@ export default function Navbar() {
             smooth={true}
             duration={500}
             className="text-3xl font-bold text-gray-800 cursor-pointer hover:text-blue-700 transition-colors duration-300 ">
-            Kanel Technologies
+            Kanel{' '}
+            <span className="text-blue-600 font-lato font-bold">
+              {' '}
+              Technologies
+            </span>
           </Link>
         </div>
 
