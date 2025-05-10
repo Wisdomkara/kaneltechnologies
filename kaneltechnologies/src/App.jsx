@@ -35,7 +35,9 @@ function App() {
             <h2 className="text-2xl font-bold text-blue-600">
               Kanel Technologies
             </h2>
-            <p className="text-gray-500 mt-2">Loading Innovative Tech Experiences...</p>
+            <p className="text-gray-500 mt-2">
+              Loading Innovative Tech Experiences...
+            </p>
           </div>
         </div>
       )}
@@ -137,7 +139,9 @@ function App() {
                   </li>
                   <li className="flex items-start">
                     <span className="text-blue-400 mr-2">📞</span>
-                    <span className="text-gray-300">+2347084153584</span>
+                    <span className="text-gray-300">
+                      +2347084153584, 07032591939
+                    </span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-blue-400 mr-2">✉️</span>
