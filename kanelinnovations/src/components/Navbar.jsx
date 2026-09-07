@@ -24,6 +24,7 @@ const serviceLinks = [
 ];
 
 const resourceLinks = [
+  { name: 'Free Ads Training', to: '/free-ads-training' },
   { name: 'Technology News', to: '/blog-news' },
   { name: 'Automation Guide', to: '/business-automations', tone: 'automation' },
 ];
@@ -187,14 +188,14 @@ export default function Navbar({ theme, onToggleTheme }) {
         />
       )}
       <div
-        className={`relative z-10 mx-auto flex max-w-7xl items-center justify-between rounded-full border px-5 py-3 transition-all duration-300 ${
+        className={`relative z-10 mx-auto flex max-w-7xl items-center justify-between rounded-full border px-3 py-3 transition-all duration-300 sm:px-5 ${
           scrolled
             ? 'glass-panel shadow-xl shadow-slate-950/20 dark:shadow-none'
             : 'border-white/25 bg-white/10 shadow-2xl shadow-slate-950/15 backdrop-blur'
         }`}>
         <RouterLink
           to="/#home"
-          className={`cursor-pointer text-xl font-black tracking-tight transition md:text-2xl ${
+          className={`cursor-pointer text-base font-black tracking-tight transition sm:text-xl md:text-2xl ${
             scrolled ? 'text-slate-900 dark:text-white' : 'text-white'
           }`}>
           Kanel <span className="text-blue-600 dark:text-blue-200">innovations</span>
@@ -232,7 +233,7 @@ export default function Navbar({ theme, onToggleTheme }) {
           </RouterLink>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-1 sm:gap-3">
           <button
             type="button"
             onClick={onToggleTheme}

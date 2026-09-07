@@ -9,6 +9,7 @@ import TimedInquiryModal from './components/TimedInquiryModal.jsx';
 import BlogNewsPage from './pages/BlogNewsPage.jsx';
 import BusinessAutomationsPage from './pages/BusinessAutomationsPage.jsx';
 import ServiceDetailPage from './pages/ServiceDetailPage.jsx';
+import FreeAdsTrainingPage from './pages/FreeAdsTrainingPage.jsx';
 import { OWNER_EMAIL, sendOwnerEmail } from './utils/mail.js';
 import {
   About,
@@ -348,6 +349,8 @@ function ScrollToHash() {
 }
 
 function App() {
+  const location = useLocation();
+  const isTrainingPage = location.pathname.replace(/\/+$/, '') === '/free-ads-training';
   const [loading, setLoading] = useState(true);
   const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light');
 
@@ -367,13 +370,14 @@ function App() {
       <ScrollToHash />
       <Navbar theme={theme} onToggleTheme={() => setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'))} />
       <AnimatePresence>
-        {loading && <WireframeLoader />}
+        {loading && !isTrainingPage && <WireframeLoader />}
       </AnimatePresence>
 
-      <div className={`transition-opacity duration-700 ${loading ? 'opacity-0' : 'opacity-100'}`}>
+      <div className={`transition-opacity duration-700 ${loading && !isTrainingPage ? 'opacity-0' : 'opacity-100'}`}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/blog-news" element={<BlogNewsPage />} />
+          <Route path="/free-ads-training" element={<FreeAdsTrainingPage />} />
           <Route path="/business-automations" element={<BusinessAutomationsPage />} />
           <Route path="/services/business-automations" element={<BusinessAutomationsPage />} />
           <Route path="/services/:slug" element={<ServiceDetailPage />} />
@@ -381,7 +385,7 @@ function App() {
         <SiteFooter />
       </div>
 
-      <FloatingWhatsAppButton />
+      {!isTrainingPage && <FloatingWhatsAppButton />}
     </div>
   );
 }
