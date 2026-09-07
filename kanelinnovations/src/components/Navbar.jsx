@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { ChevronDown, Menu, Moon, Sun, X } from 'lucide-react';
-import { motion as Motion } from 'framer-motion';
+import { motion as Motion, useReducedMotion } from 'framer-motion';
+
+const MotionRouterLink = Motion.create(RouterLink);
 
 const homeLinks = [
   { name: 'Home', to: '/#home', section: 'home' },
@@ -36,6 +38,15 @@ const navTextClass = {
 
 export default function Navbar({ theme, onToggleTheme }) {
   const location = useLocation();
+  const reduceMotion = useReducedMotion();
+  const mobileItemVariants = {
+    hidden: { opacity: reduceMotion ? 1 : 0, x: reduceMotion ? 0 : -16 },
+    visible: { opacity: 1, x: 0, transition: { duration: reduceMotion ? 0 : 0.22 } },
+  };
+  const mobileListVariants = {
+    hidden: {},
+    visible: { transition: { staggerChildren: reduceMotion ? 0 : 0.045 } },
+  };
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [openDesktopMenu, setOpenDesktopMenu] = useState(null);
@@ -147,32 +158,32 @@ export default function Navbar({ theme, onToggleTheme }) {
   );
 
   const renderMobileDropdown = (id, label, items) => (
-    <div>
+    <Motion.div variants={mobileItemVariants}>
       <button
         type="button"
-        className="flex w-full items-center justify-between rounded-2xl px-4 py-3 text-left text-sm font-semibold text-slate-700 transition hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-white/5"
+        className="flex w-full items-center justify-between rounded-2xl px-4 py-3 text-left text-base font-semibold text-slate-700 transition hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-white/5"
         onClick={() => setOpenMobileMenu((current) => (current === id ? null : id))}
         aria-expanded={openMobileMenu === id}>
         {label}
         <ChevronDown className={`h-4 w-4 transition ${openMobileMenu === id ? 'rotate-180' : ''}`} />
       </button>
       {openMobileMenu === id && (
-        <div className="mt-1 grid gap-1 pl-3">
+        <Motion.div initial="hidden" animate="visible" variants={mobileListVariants} className="mt-1 grid gap-1 pl-3">
           {items.map((item) => (
-            <RouterLink
+            <MotionRouterLink variants={mobileItemVariants}
               key={item.to}
               to={item.to}
-              className={`rounded-xl px-4 py-3 text-sm font-semibold transition ${
+              className={`min-h-11 rounded-xl px-4 py-3 text-base font-semibold transition ${
                 item.tone === 'automation'
                   ? 'text-emerald-700 hover:bg-emerald-50 hover:text-emerald-800 dark:text-emerald-300 dark:hover:bg-emerald-400/10 dark:hover:text-emerald-200'
                   : 'text-slate-600 hover:bg-blue-50 hover:text-blue-700 dark:text-slate-300 dark:hover:bg-white/10 dark:hover:text-white'
               }`}>
               {item.name}
-            </RouterLink>
+            </MotionRouterLink>
           ))}
-        </div>
+        </Motion.div>
       )}
-    </div>
+    </Motion.div>
   );
 
   return (
@@ -254,7 +265,9 @@ export default function Navbar({ theme, onToggleTheme }) {
                 ? 'border-slate-200 bg-white text-slate-700 dark:border-white/10 dark:bg-white/5 dark:text-slate-200'
                 : 'border-white/25 bg-white text-slate-800'
             }`}
-            aria-label="Toggle menu">
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isOpen}
+            aria-controls="mobile-navigation">
             {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
@@ -262,32 +275,33 @@ export default function Navbar({ theme, onToggleTheme }) {
 
       {isOpen && (
         <Motion.div
-          initial={{ opacity: 0, y: -20, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
+          initial={reduceMotion ? false : { opacity: 0, y: -8 }}
+          animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20, scale: 0.95 }}
-          transition={{ duration: 0.2 }}
-          className="mx-auto mt-3 max-w-7xl rounded-[2rem] glass-panel p-5 shadow-2xl dark:shadow-none lg:hidden">
-          <div className="flex flex-col gap-2">
+          transition={{ duration: reduceMotion ? 0 : 0.2 }}
+          id="mobile-navigation"
+          className="mx-auto mt-3 max-h-[calc(100dvh-7rem)] max-w-7xl overflow-y-auto overscroll-contain rounded-3xl border border-slate-200 bg-white p-3 shadow-2xl dark:border-white/10 dark:bg-slate-950 dark:shadow-none sm:p-5 lg:hidden">
+          <Motion.div initial="hidden" animate="visible" variants={mobileListVariants} className="flex flex-col gap-2">
             {homeLinks.map(({ name, to, section }) => (
-              <RouterLink
+              <MotionRouterLink variants={mobileItemVariants}
                 key={to}
                 to={to}
-                className={`cursor-pointer rounded-2xl px-4 py-3 text-sm font-semibold transition ${
+                className={`cursor-pointer rounded-2xl px-4 py-3 text-base font-semibold transition ${
                   isHomePage && activeSection === section
                     ? 'bg-blue-100 text-blue-700 dark:bg-white/10 dark:text-white'
                     : 'text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-white/5'
                 }`}>
                 {name}
-              </RouterLink>
+              </MotionRouterLink>
             ))}
 
             {renderMobileDropdown('services', 'Services', serviceLinks)}
             {renderMobileDropdown('resources', 'Resources', resourceLinks)}
 
-            <RouterLink to="/#contact" className="mt-2 cursor-pointer rounded-2xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white">
+            <MotionRouterLink variants={mobileItemVariants} to="/#contact" className="mt-2 cursor-pointer rounded-2xl bg-blue-600 px-4 py-3 text-base font-semibold text-white">
               Contact
-            </RouterLink>
-          </div>
+            </MotionRouterLink>
+          </Motion.div>
         </Motion.div>
       )}
     </nav>
